@@ -20,7 +20,22 @@
     * Es un conjunto de métodos y propiedades que permite interactuar con el navegador.
 ## CSS
 * Es un lenguaje de marcado que permite estilizar páginas web.
-    * `<style>` - Etiqueta para definir un estilo.
+* `<style>` - Etiqueta para definir un estilo.
+    ### Tailwind CSS
+    * [Tailwind CSS](https://tailwindcss.com/docs/introduction)
+    * Es un framework de estilos para la web.
+    * Para instalarlo correr el siguiente comando:
+    `npm install -D tailwindcss postcss autoprefixer`.
+    * Para usarlo en tu proyecto correr el siguiente comando: `npx tailwindcss init -p` y agregar la ruta al archivo _tailwind.config.js_:
+    ` content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    ],`
+    * Agregar las etiquetas al archivo _index.css_:
+    `@tailwind base;
+    @tailwind components;
+    @tailwind utilities;`
+    * Arrancarlo con `npm run dev`.
 ## JS
 * Vanilla JavaScript: Es un lenguaje de programación que no requiere de un framework.
 ### Variables
@@ -44,3 +59,10 @@
     * `(param1, param2) => { return param1 + param2; }` - Es una función que recibe parámet
 * `return` - Es una instrucción que devuelve un valor a la función.
 ## React.js
+* Es un framework de JavaScript que permite crear interfaces de usuario.
+    ### Create-react-app
+    * Es una herramienta que permite crear un proyecto de React.js.
+    * Se crea con `npx create-react-app (nombre-proyecto)` y se puede ejecutar con `npm start` o `npm run dev`.
+    ### Vite.js
+    * Es una herramienta que permite crear un proyecto de React.js.
+    * Se crea con `npm init vite@latest (nombre-proyecto)` y se puede ejecutar con `npm start` o `npm run dev`.
