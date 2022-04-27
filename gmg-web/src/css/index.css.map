@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AACI,GADD,CACC,CAAC,AAAA,MAAM,CAAA;EACH,KAAK,EAAE,KAAK;CAEf;;ADHL,SAAS,CAAT,IAAS;AACT,SAAS,CAAT,UAAS;AACT,SAAS,CAAT,SAAS",
+    "sources": [
+        "../sass/index.scss",
+        "../sass/_navBar.scss"
+    ],
+    "names": [],
+    "file": "index.css"
+}

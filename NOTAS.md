@@ -35,7 +35,10 @@
     `@tailwind base;
     @tailwind components;
     @tailwind utilities;`
+    * Agregar el archivo json e importarlo en _.vscode/settings.json_:
+    `"css.customData": [".vscode/css_custom_data.json"],`
     * Arrancarlo con `npm run dev`.
+    
 ## JS
 * Vanilla JavaScript: Es un lenguaje de programación que no requiere de un framework.
 ### Variables
@@ -66,3 +69,6 @@
     ### Vite.js
     * Es una herramienta que permite crear un proyecto de React.js.
     * Se crea con `npm init vite@latest (nombre-proyecto)` y se puede ejecutar con `npm start` o `npm run dev`.
+    ### React-icons
+    * Una herramienta que permite tener iconos en React.js.
+    * Se crea con `npm install react-icons@latest --save` y se puede ejecutar con `npm start` o `npm run dev`.
