@@ -1,4 +1,4 @@
-
+import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import NavBar from '../NavBar/NavBar';
 function App() {
   return (
@@ -6,7 +6,8 @@ function App() {
       <header className=" h-12 bg-gray-700 ">
         <NavBar/>
       </header>
-      <main className="  h-5/6 flex">Main</main>
+      <ItemListContainer saludo='Bienvenido a mi App, este es el ItemListContainer'/>
+      <main className="  h-5/6 flex w-screen">Main</main>
     </div>
   );
 }
