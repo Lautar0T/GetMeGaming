@@ -7,7 +7,7 @@ function App() {
         <NavBar/>
       </header>
       <ItemListContainer saludo='Bienvenido a mi App, este es el ItemListContainer'/>
-      <main className="  h-5/6 flex w-screen">Main</main>
+      <main className=" h-5/6 flex w-screen">Main</main>
     </div>
   );
 }
