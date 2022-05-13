@@ -1,0 +1,69 @@
+{
+    "articles": [
+        {
+            "id": 1,
+            "name": "Memoria RAM",
+            "price": "100",
+            "stock": "13",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_725124-MLA40927542006_022020-W.webp",
+            "description": "Memoria RAM de 8GB"
+
+        },
+        {
+            "id": 2,
+            "name": "Disco Duro",
+            "price": "200",
+            "stock": "13",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_751939-MLA46221843872_052021-V.webp",
+            "description": "Disco Duro de 1TB"
+        },
+        {
+            "id": 3,
+            "name": "Tarjeta de Video",
+            "price": "300",
+            "stock": "13",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_982850-MLA48588007111_122021-O.webp",
+            "description": "Tarjeta de video de alto rendimiento"
+        },
+        {
+            "id": 4,
+            "name": "Tarjeta de Sonido",
+            "price": "400",
+            "stock": "13",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_770189-MLA49357859709_032022-V.webp",
+            "description": "Tarjeta de sonido de alto rendimiento"
+        },
+        {
+            "id": 5,
+            "name": "Tarjeta de Red",
+            "price": "500",
+            "stock": "13",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_713543-MLA44983935953_022021-W.webp",
+            "description": "Tarjeta de red de alto rendimiento"
+        },
+        {
+            "id": 6,
+            "name": "Monitor",
+            "price": "600",
+            "stock": "13",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_926028-MLA48705312123_122021-W.webp",
+            "description": "Monitor de alto rendimiento"
+        },
+        {
+            "id": 7,
+            "name": "Teclado",
+            "price": "700",
+            "stock": "13",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_960095-MLA42645987830_072020-V.webp",
+            "description": "Teclado de alto rendimiento"
+        },
+        {
+            "id": 8,
+            "name": "Mouse",
+            "price": "800",
+            "stock": "13",
+            "img": "https://http2.mlstatic.com/D_NQ_NP_966913-MLA32149634914_092019-V.webp",
+            "description": "Mouse de alto rendimiento"
+        }
+    ]
+}

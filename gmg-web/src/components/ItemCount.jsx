@@ -1,5 +1,5 @@
 import { useState } from "react"
-import logo from "../../assets/img/logo512.png"
+import logo from "../assets/img/logo512.png"
 const ItemCount = ({ initial, stock }) => {
     const [count, setCount] = useState(initial)
     const handleIncrement = () => {
