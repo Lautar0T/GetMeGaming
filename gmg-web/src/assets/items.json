@@ -1,7 +1,8 @@
 {
     "articles": [
         {
-            "id": 1,
+            "id": "1",
+            "category": "Componentes",
             "name": "Memoria RAM",
             "price": "100",
             "stock": "13",
@@ -10,58 +11,65 @@
 
         },
         {
-            "id": 2,
+            "id": "2",
+            "category": "Componentes",
             "name": "Disco Duro",
             "price": "200",
-            "stock": "13",
+            "stock": "18",
             "img": "https://http2.mlstatic.com/D_NQ_NP_751939-MLA46221843872_052021-V.webp",
             "description": "Disco Duro de 1TB"
         },
         {
-            "id": 3,
+            "id": "3",
+            "category": "Componentes",
             "name": "Tarjeta de Video",
             "price": "300",
-            "stock": "13",
+            "stock": "23",
             "img": "https://http2.mlstatic.com/D_NQ_NP_982850-MLA48588007111_122021-O.webp",
             "description": "Tarjeta de video de alto rendimiento"
         },
         {
-            "id": 4,
+            "id": "4",
+            "category": "Componentes",
             "name": "Tarjeta de Sonido",
             "price": "400",
-            "stock": "13",
+            "stock": "3",
             "img": "https://http2.mlstatic.com/D_NQ_NP_770189-MLA49357859709_032022-V.webp",
             "description": "Tarjeta de sonido de alto rendimiento"
         },
         {
-            "id": 5,
+            "id": "5",
+            "category": "Componentes",
             "name": "Tarjeta de Red",
             "price": "500",
-            "stock": "13",
+            "stock": "19",
             "img": "https://http2.mlstatic.com/D_NQ_NP_713543-MLA44983935953_022021-W.webp",
             "description": "Tarjeta de red de alto rendimiento"
         },
         {
-            "id": 6,
+            "id": "6",
+            "category": "Perifericos",
             "name": "Monitor",
             "price": "600",
-            "stock": "13",
+            "stock": "12",
             "img": "https://http2.mlstatic.com/D_NQ_NP_926028-MLA48705312123_122021-W.webp",
             "description": "Monitor de alto rendimiento"
         },
         {
-            "id": 7,
+            "id": "7",
+            "category": "Perifericos",
             "name": "Teclado",
             "price": "700",
-            "stock": "13",
+            "stock": "132",
             "img": "https://http2.mlstatic.com/D_NQ_NP_960095-MLA42645987830_072020-V.webp",
             "description": "Teclado de alto rendimiento"
         },
         {
-            "id": 8,
+            "id": "8",
+            "category": "Perifericos",
             "name": "Mouse",
             "price": "800",
-            "stock": "13",
+            "stock": "156",
             "img": "https://http2.mlstatic.com/D_NQ_NP_966913-MLA32149634914_092019-V.webp",
             "description": "Mouse de alto rendimiento"
         }

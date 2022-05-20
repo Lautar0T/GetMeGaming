@@ -1,8 +1,9 @@
 import React from 'react'
+import {  NavLink } from 'react-router-dom'
 
-const NavItem = ({cat}) => {
+const NavItem = ({content, link, customClass}) => {
     return (
-        <li className='mr-10'><p onClick={() => {console.log(cat)}} className=' cursor-pointer hover:text-slate-500 font-semibold text-slate-300'>{cat}</p></li>
+        <li className='mr-10'><NavLink to={`${link}`} className= {`${customClass} cursor-pointer hover:text-slate-500 font-semibold text-slate-300 `} >{content}</NavLink></li>
     )
 }
 

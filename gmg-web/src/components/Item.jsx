@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom"
 
-
-const Item = ({ name, price, img, stock, descr }) => {
+const Item = ({prodId, name, price, img, stock, descr }) => {
     return (
         <div className="text-black grid justify-items-center bg-gray-700 border-gray-800 border-2 rounded-lg w-80 lg:w-96 p-2 relative">
             <div className="">
@@ -12,7 +12,7 @@ const Item = ({ name, price, img, stock, descr }) => {
                 <p>Precio: <span className=" font-normal">${price}</span></p>
                 <p>Stock: <span className=" font-normal">{stock}</span></p>
                 <p>Descripcion: <span className=" font-normal">{descr}</span></p>
-                <button className="bg-violet-400 hover:bg-violet-300 m-1  p-1 rounded-lg shadow-md justify-self-center border-violet-500 border-2 shadow-black" onClick={() => console.log("Click en el articulo:", `${name}`)}>Detalles</button>
+                <Link to={`/item/${prodId}`} className="bg-violet-400 hover:bg-violet-300 m-1  p-1 rounded-lg shadow-md justify-self-center border-violet-500 border-2 shadow-black" onClick={() => console.log("Click en el articulo:", `${name}`)}>Detalles</Link>
             </div>
         </div>
     )
