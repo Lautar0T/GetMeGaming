@@ -9,7 +9,7 @@ function App() {
         <header className=" h-[5.5vh]">
           <NavBar />
         </header>
-        <main className="grid justify-center pt-4 pb-10">
+        <main className="grid justify-center pt-8 pb-10">
           <Routes>
             <Route path='/' element= {<ItemListContainer saludo='Bienvenido a mi App, este es el ItemListContainer' />} />
             <Route path='/category/:catId' element= {<ItemListContainer saludo='Bienvenido a mi App,' />} />
