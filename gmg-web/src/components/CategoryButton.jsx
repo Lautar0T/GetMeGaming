@@ -1,7 +1,9 @@
 
 import { NavLink } from "react-router-dom"
 import { uniqueCategories } from "../assets/fetch"
+//map an array and give it a key
 const CategoryButton = () => {
+    console.log(uniqueCategories)
     return (
         <>
             <ul className='flex justify-end xl:min-w-[1184px] md:min-w-[784px] mt-3 '>

@@ -10,11 +10,12 @@ const ItemDetail = ({ item }) => {
     function updStockHi () {
         setLiveStock(liveStock + 1)
     }
-    const {addToCart, calcTotal} = useCartContext()
+    const {addToCart, calcTotal, isInCart } = useCartContext()
     function onAdd(cant) {
         addToCart([{...item, cantidad: cant}])
         setShowCount(!showCount)
         calcTotal()
+        console.log(isInCart(item))
     }
     return (
         <div className="text-slate-100 grid p-6 bg-gray-700 border-gray-800 border-2 rounded-lg ">
