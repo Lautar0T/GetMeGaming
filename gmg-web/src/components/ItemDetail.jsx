@@ -1,15 +1,20 @@
 import { useState } from 'react'
 import ItemCount from './ItemCount'
+import { useCartContext } from '../context/cartContext'
 const ItemDetail = ({ item }) => {
-    const [count, setCount] = useState(true)
-    const [stock, setStock] = useState(parseInt(item.stock))
-    console.log(count)
-    function updStock(coun) {
-        setStock(parseInt(item.stock) - coun)
+    const [showCount, setShowCount] = useState(true)
+    const [liveStock, setLiveStock] = useState(item.stock)
+    function updStockLow () {
+        setLiveStock(liveStock - 1)
     }
-    function onAdd(cuenta) {
-        console.log(cuenta)
-        setCount(!count)
+    function updStockHi () {
+        setLiveStock(liveStock + 1)
+    }
+    const {addToCart, calcTotal} = useCartContext()
+    function onAdd(cant) {
+        addToCart([{...item, cantidad: cant}])
+        setShowCount(!showCount)
+        calcTotal()
     }
     return (
         <div className="text-slate-100 grid p-6 bg-gray-700 border-gray-800 border-2 rounded-lg ">
@@ -18,8 +23,8 @@ const ItemDetail = ({ item }) => {
                 <div className="w-full flex-col font-semibold p-2 justify-item-start">
                     <p className=" text-2xl ">{item.name}</p>
                     <p>Precio: <span className=" font-normal">${item.price}</span></p>
-                    <div className="font-normal">Stock Disponible: {stock}</div>
-                    {count ? <ItemCount initial={0} stock={item.stock} onAdd={onAdd} updStock={updStock}/> : null}
+                    <p>Stock: <span className="font-normal">{liveStock}</span></p>
+                    {showCount ? <ItemCount initial={0} stock={item.stock} onAdd={onAdd} updStockLow={updStockLow} updStockHi={updStockHi}/> : null}
                 </div>
             </div>
             <p>Descripcion: <span className=" font-normal">{item.description}</span></p>

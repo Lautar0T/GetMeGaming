@@ -1,26 +1,25 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-const ItemCount = ({ initial, stock, onAdd, updStock}) => {
+const ItemCount = ({ initial, stock, onAdd, updStockLow, updStockHi}) => {
     const [count, setCount] = useState(initial)
     const handleIncrement = () => {
         if (count < stock) {
             setCount(count + 1)
-            
+            updStockLow(count)
         }
         else if (count === stock) {
             console.log("No hay stock disponible")
         }
-        updStock(count)
+        
     }
     const handleDecrement = () => {
         if (count > 0) {
             setCount(count - 1)
-            
+            updStockHi(count)
         }
         else if (count === 0) {
             console.log("No puede ser menor que 0")
         }
-        updStock(count)
     }
     return (
         <div className="text-white grid justify-items-center">
