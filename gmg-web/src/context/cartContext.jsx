@@ -6,7 +6,8 @@ const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
     function addToCart(lista) {
-        setCartList(lista)
+        setCartList( cartList.concat(lista) )
+        console.log(cartList)
     }
     function isInCart (item) {
         return cartList.some(itemCart => itemCart.id === item.id)
