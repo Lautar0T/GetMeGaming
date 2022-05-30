@@ -7,6 +7,19 @@ nav .dotCom:hover {
   text-shadow: 0px 0px 51px;
 }
 
+table {
+  text-align: center;
+}
+
+table thead tr {
+  padding: 0rem 0.5rem;
+}
+
+table thead tr th, table thead tr td {
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
