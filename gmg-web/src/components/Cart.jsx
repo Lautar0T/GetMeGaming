@@ -26,8 +26,8 @@ const Cart = () => {
                                 <tr key={item.id} className="bg-slate-600 border-slate-400 p-2 border-b-2 text-center text-lg">
                                     <td className="pl-2 p-1 lg:pr-24">{item.name}</td>
                                     <td className="p-1 lg:pr-24">{item.cantidad}</td>
-                                    <td className="p-1 lg:pr-24">{(item.price)}</td>
-                                    <td className="p-1 lg:pr-24">{(item.price * item.cantidad)}</td>
+                                    <td className="p-1 lg:pr-24">${(item.price)}</td>
+                                    <td className="p-1 lg:pr-24">${(item.price * item.cantidad)}</td>
                                     <td className="justify-center flex items-baseline p-1 lg:pr-12"><MdDeleteOutline className="text-red-600 hover:text-red-700 w-full h-7 " onClick={() => removeFromCart(item)} /></td>
                                 </tr>
                             ))}
