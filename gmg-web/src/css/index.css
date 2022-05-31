@@ -1,4 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+nav .navItem-active {
+  text-shadow: 0px 0px 45px;
+}
+
+nav .navItem-active:hover {
+  text-shadow: none;
+}
+
+nav .navItem:hover {
+  text-shadow: 0px 0px 45px;
+}
+
 nav .letrasTitulo:hover {
   text-shadow: 0px 0px 45px;
 }
@@ -7,17 +19,16 @@ nav .dotCom:hover {
   text-shadow: 0px 0px 51px;
 }
 
-table {
-  text-align: center;
-}
-
-table thead tr {
-  padding: 0rem 0.5rem;
-}
-
-table thead tr th, table thead tr td {
-  border-radius: 15px;
-  padding: 0.5rem 1rem;
+@media screen and (min-width: 768px) {
+  table {
+    text-align: center;
+  }
+  table thead tr th {
+    padding: 0.5rem 1rem;
+  }
+  table thead tr td {
+    padding: 0.5rem 1rem;
+  }
 }
 
 @tailwind base;

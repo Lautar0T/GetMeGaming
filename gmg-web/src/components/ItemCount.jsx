@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useCartContext } from "../context/cartContext"
 const ItemCount = ({ initial, stock, onAdd, updStockLow, updStockHi }) => {
+    const { emptyCart } = useCartContext()
     const [count, setCount] = useState(initial)
     const handleIncrement = () => {
         if (count < stock) {
@@ -30,7 +32,7 @@ const ItemCount = ({ initial, stock, onAdd, updStockLow, updStockHi }) => {
                 <button onClick={handleIncrement} className="h-7 w-7 text-center text-xl font-bold bg-black hover:bg-green-600 rounded-r-lg">+</button>
             </div>
             <span className="hover:bg-blue-700 bg-slate-600 rounded-lg p-1 mt-1 cursor-pointer" onClick={() => onAdd(count)}>Agregar al Carrito</span>
-            <Link to='/cart' className="hover:bg-green-700 bg-slate-600 rounded-lg p-1 mt-1">Finalizar compra</Link>
+            {emptyCart ? undefined : <Link to='/cart' className="hover:bg-green-700 bg-slate-600 rounded-lg p-1 mt-1">Finalizar compra</Link>}
         </div>
     )
 }

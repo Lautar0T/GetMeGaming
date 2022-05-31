@@ -5,8 +5,16 @@ export const useCartContext = () => useContext(CartContext)
 const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
     const [cartTotal, setCartTotal] = useState(0)
+    const [emptyCart, setEmptyCart] = useState(true)
     function addToCart(lista) {
         setCartList(cartList.concat(lista))
+    }
+    function showCart() {
+        if (cartList.length === 0) {
+            setEmptyCart(true)
+        } else if(cartList.length > 0) {
+            setEmptyCart(false)
+        }
     }
     function addCant (cant, id) {
         let newCart = cartList.map(item => {
@@ -39,8 +47,8 @@ const CartContextProvider = ({ children }) => {
     }
     return (
         <CartContext.Provider value={{
-            cartList, cartTotal,
-            setCartList, setCartTotal, removeFromCart, calcTotal, isInCart, clearCart
+            cartList, cartTotal, emptyCart,
+            setCartList, setCartTotal, setEmptyCart, removeFromCart, calcTotal, isInCart, clearCart, showCart
         }}>
             {children}
         </CartContext.Provider>
