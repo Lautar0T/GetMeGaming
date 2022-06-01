@@ -6,6 +6,21 @@ const Cart = () => {
     const { cartList, cartTotal, clearCart, removeFromCart, emptyCart, showCart } = useCartContext()
     const navigate = useNavigate()
     showCart()
+    function orderGenerator(){
+        let order = {}
+        order.buyer = {name: "John",lastname: "Doe", email: "john_doe@gmail.com", phone: "1144235622"}
+        order.total = cartTotal
+        order.items = cartList.map(item => {
+            return {
+                id: item.id,
+                product: item.name,
+                price: item.cantidad * item.price,
+                quantity: item.cantidad
+            }
+        })
+        console.log( 'order', order)
+    }
+    orderGenerator()
     return (
         <>
             <IoReturnUpBack className=' justify-self-start px-2 text-white w-12 h-12 rounded-lg ' onClick={() => navigate(-1)} />

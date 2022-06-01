@@ -14,9 +14,9 @@ function App() {
           </header>
           <main className="grid justify-center pt-12 pb-10 ">
             <Routes>
-              <Route path='/' element={<ItemListContainer saludo='Bienvenido a mi App, este es el ItemListContainer' />} />
-              <Route path='/category/:catId' element={<ItemListContainer saludo='Bienvenido a mi App,' />} />
-              <Route path='/item/:itemId' element={<ItemDetailContainer titulo='Este es el ItemDetailContainer' />} />
+              <Route path='/' element={<ItemListContainer/>} />
+              <Route path='/category/:catId' element={<ItemListContainer/>} />
+              <Route path='/item/:itemId' element={<ItemDetailContainer />} />
               <Route path='/cart' element={<Cart/>}/>
               <Route path='/*' element={<Navigate to='/' replace />} />
             </Routes>
