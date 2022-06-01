@@ -27,8 +27,8 @@ const Cart = () => {
             <div className="text-slate-100 grid p-3 lg:p-6 gap-2 bg-gray-700 border-gray-800 border-2 rounded-lg">
                 <table className={emptyCart ? "table-auto rounded-t-lg bg-slate-500 max-w-[90%]" : "table-auto rounded-lg bg-slate-500 "}>
                     <thead>
-                        <tr className=" border-b-2 border-slate-400 font-bold lg:text-xl content-between">
-                            <th className="pl-2 p-1 lg:pr-24">Articulo</th>
+                        <tr className=" border-b-2 border-slate-400 font-semibold lg:text-xl content-between">
+                            <th  className="pl-2 p-1 lg:pr-24">Articulo</th>
                             <th className="p-1 lg:pr-24">Cantidad</th>
                             <th className="p-1 lg:pr-24">Precio</th>
                             <th className="p-1 lg:pr-24">Subtotal</th>
@@ -39,7 +39,7 @@ const Cart = () => {
                         {emptyCart ? undefined : <tbody>
                             {cartList.map(item => (
                                 <tr key={item.id} className="bg-slate-600 border-slate-400 p-2 border-b-2 text-center text-lg">
-                                    <td className="pl-2 p-1 lg:pr-24">{item.name}</td>
+                                    <td className="pl-2 p-1 lg:pr-24 font-medium">{item.name}</td>
                                     <td className="p-1 lg:pr-24">{item.cantidad}</td>
                                     <td className="p-1 lg:pr-24">${(item.price)}</td>
                                     <td className="p-1 lg:pr-24">${(item.price * item.cantidad)}</td>
@@ -51,8 +51,8 @@ const Cart = () => {
                 </table>
                 {emptyCart ? <div className="text-center grid "><span className=" rounded-b-lg py-1 text-lg font-medium bg-slate-500 ">El Carrito esta Vacio...</span><Link to={'/'} className='bg-violet-800 justify-self-center p-1 mt-2 rounded-lg' >Ver Productos</Link></div> : <section className="flex justify-end gap-2">
                     <p className="text-lg">Total: ${cartTotal}</p>
-                    <Link to={"/"} className="rounded-lg bg-slate-400 p-1" >Seguir Comprando</Link>
-                    <button className="bg-red-600 rounded-lg px-1 flex items-center text-lg font-semibold" onClick={() => clearCart()} >
+                    <Link to={"/"} className="rounded-lg bg-slate-400 p-1 font-medium" >Seguir Comprando</Link>
+                    <button className="bg-red-600 rounded-lg px-1 flex items-center font-medium" onClick={() => clearCart()} >
                         <p>Vaciar</p> <MdDeleteForever className="w-5 h-5" />
                     </button>
                 </section>}
