@@ -4,7 +4,7 @@ import NavItem from './NavItem'
 import { HiOutlineMenu } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 const NavBar = () => {
-    const categorias = [{ content: 'Inicio', link: '/', customClass: '' }, { content: 'Productos', link: '/products', customClass: '' }, { content: 'Comparar', link: '/compare', customClass: '' }, { content: 'Nosotros', link: '/us', customClass: '' }, { content: 'Cuenta', link: '/acount', customClass: '' }]
+    const categorias = [{ content: 'Inicio', link: '/', customClass: '' }, { content: 'Productos', link: '/products', customClass: '' }, { content: 'Comparar', link: '/compare', customClass: '' }, { content: 'Publicar', link: '/post', customClass: '' }, { content: 'Perfil', link: '/profile', customClass: '' }]
     return (
         <nav className="flex justify-between items-center p-4 fixed top-0 left-0 right-0 z-30 bg-gray-900 border-b-2 border-gray-800">
             <div><Link to='/' className="flex items-baseline">
