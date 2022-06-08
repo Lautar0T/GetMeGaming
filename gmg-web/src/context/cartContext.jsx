@@ -28,14 +28,13 @@ const CartContextProvider = ({ children }) => {
     function isInCart(item, cant) {
         if (cartList.find(itemInCart => itemInCart.id === item.id)) {
             addCant(cant, item.id)
-            console.log(cartList, 'cartlist')
         } else {
             addToCart(item)
-            console.log(cartList, 'cartlist')
         }
     }
     function calcTotal(price, cant) {
-        return setCartTotal(cartTotal + (price * cant))
+        setCartTotal(cartTotal + (price * cant))
+        return cartTotal
     }
     function removeFromCart(item) {
         setCartList(cartList.filter(list => list.id !== item.id))

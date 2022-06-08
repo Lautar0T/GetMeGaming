@@ -2,9 +2,10 @@ import { Link, useNavigate } from "react-router-dom"
 import { useCartContext } from "../context/cartContext"
 import { MdDeleteForever, MdDeleteOutline } from "react-icons/md"
 import { IoReturnUpBack } from "react-icons/io5"
+import { BsCashCoin } from "react-icons/bs"
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 const Cart = () => {
-    const { cartList, cartTotal, clearCart, removeFromCart, emptyCart, showCart } = useCartContext()
+    const { cartList, cartTotal, clearCart, removeFromCart, emptyCart, showCart} = useCartContext()
     const navigate = useNavigate()
     showCart()
     function langForm(x) {
@@ -26,11 +27,10 @@ const Cart = () => {
         const db = getFirestore()
         const orderCollection = collection(db,'orders')
         addDoc(orderCollection, order)
-        .then(snapShot => console.log(snapShot))
+        .then(snapShot => console.log('Order Your order Id',snapShot.id))
         .catch(err => console.log(err))
-        .finally(() => emptyCart())
+        .finally(() => clearCart())
     }
-    orderGenerator()
     return (
         <>
             <IoReturnUpBack className=' justify-self-start px-2 text-white w-12 h-12 rounded-lg ' onClick={() => navigate(-1)} />
@@ -61,10 +61,11 @@ const Cart = () => {
                 </table>
                 {emptyCart ? <div className="text-center grid "><span className=" rounded-b-lg py-1 text-lg font-medium bg-slate-500 ">El Carrito esta Vacio...</span><Link to={'/'} className='bg-violet-800 justify-self-center p-1 mt-2 rounded-lg' >Ver Productos</Link></div> : <section className="flex justify-end gap-2">
                     <p className="text-xl font-medium">Total: ${langForm(cartTotal)}</p>
-                    <Link to={"/"} className="rounded-lg bg-slate-400 p-1 font-medium" >Seguir Comprando</Link>
+                    <Link to={"/"} className="rounded-lg bg-slate-400 p-1 font-medium" >Seguir Comprando </Link>
                     <button className="bg-red-600 rounded-lg px-1 flex items-center font-medium" onClick={() => clearCart()} >
                         <p>Vaciar</p> <MdDeleteForever className="w-5 h-5" />
                     </button>
+                    <button className="rounded-lg px-1 font-medium flex items-center bg-green-500" onClick={() => orderGenerator()} > <p>Finalizar Compra</p> <BsCashCoin className="ml-2 w-5 h-5" /> </button>
                 </section>}
             </div>
         </>
