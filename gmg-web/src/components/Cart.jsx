@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useCartContext } from "../context/cartContext"
 import { MdDeleteForever, MdDeleteOutline } from "react-icons/md"
 import { IoReturnUpBack } from "react-icons/io5"
+import { addDoc, collection, getFirestore } from 'firebase/firestore'
 const Cart = () => {
     const { cartList, cartTotal, clearCart, removeFromCart, emptyCart, showCart } = useCartContext()
     const navigate = useNavigate()
@@ -22,7 +23,12 @@ const Cart = () => {
                 quantity: item.cantidad
             }
         })
-        console.log('order', order)
+        const db = getFirestore()
+        const orderCollection = collection(db,'orders')
+        addDoc(orderCollection, order)
+        .then(snapShot => console.log(snapShot))
+        .catch(err => console.log(err))
+        .finally(() => emptyCart())
     }
     orderGenerator()
     return (
