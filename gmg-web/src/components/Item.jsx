@@ -12,7 +12,7 @@ const Item = ({prodId, name, price, img, stock, descr }) => {
                 <p>Precio: <span className=" font-normal">${price}</span></p>
                 <p>Stock: <span className=" font-normal">{stock}</span></p>
                 <p>Descripcion: <span className=" font-normal">{descr}</span></p>
-                <Link to={`/item/${prodId}`} className="bg-violet-400 hover:bg-violet-300 m-1  p-1 rounded-lg shadow-md justify-self-center border-violet-500 border-2 shadow-black">Detalles</Link>
+                <Link to={`/item/${prodId}`} className="bg-violet-400 hover:bg-violet-300 m-1 px-1 rounded-lg shadow-md justify-self-center self-center border-violet-500 border-2 shadow-black">Detalles</Link>
             </div>
         </div>
     )

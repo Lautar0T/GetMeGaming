@@ -27,7 +27,7 @@ const Cart = () => {
         const db = getFirestore()
         const orderCollection = collection(db,'orders')
         addDoc(orderCollection, order)
-        .then(snapShot => console.log('Order Your order Id',snapShot.id))
+        .then(snapShot => console.log('Your order Id',snapShot.id))
         .catch(err => console.log(err))
         .finally(() => clearCart())
     }
@@ -59,9 +59,9 @@ const Cart = () => {
                         </tbody>}
                     </>
                 </table>
-                {emptyCart ? <div className="text-center grid "><span className=" rounded-b-lg py-1 text-lg font-medium bg-slate-500 ">El Carrito esta Vacio...</span><Link to={'/'} className='bg-violet-800 justify-self-center p-1 mt-2 rounded-lg' >Ver Productos</Link></div> : <section className="flex justify-end gap-2">
+                {emptyCart ? <div className="text-center grid "><span className=" rounded-b-lg py-1 text-lg font-medium bg-slate-500 ">El Carrito esta Vacio...</span><Link to={'/products'} className='bg-violet-800 justify-self-center p-1 mt-2 rounded-lg' >Ver Productos</Link></div> : <section className="flex justify-end gap-2">
                     <p className="text-xl font-medium">Total: ${langForm(cartTotal)}</p>
-                    <Link to={"/"} className="rounded-lg bg-slate-400 p-1 font-medium" >Seguir Comprando </Link>
+                    <Link to={"/products"} className="rounded-lg bg-slate-400 p-1 font-medium" >Seguir Comprando </Link>
                     <button className="bg-red-600 rounded-lg px-1 flex items-center font-medium" onClick={() => clearCart()} >
                         <p>Vaciar</p> <MdDeleteForever className="w-5 h-5" />
                     </button>
