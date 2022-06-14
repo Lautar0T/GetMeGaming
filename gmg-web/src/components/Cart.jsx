@@ -4,8 +4,9 @@ import { MdDeleteForever, MdDeleteOutline } from "react-icons/md"
 import { IoReturnUpBack } from "react-icons/io5"
 import { BsCashCoin } from "react-icons/bs"
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import Swal from 'sweetalert2'
 const Cart = () => {
-    const { cartList, cartTotal, clearCart, removeFromCart, emptyCart, showCart} = useCartContext()
+    const { cartList, cartTotal, clearCart, removeFromCart, emptyCart, showCart } = useCartContext()
     const navigate = useNavigate()
     showCart()
     function langForm(x) {
@@ -25,11 +26,11 @@ const Cart = () => {
             }
         })
         const db = getFirestore()
-        const orderCollection = collection(db,'orders')
+        const orderCollection = collection(db, 'orders')
         addDoc(orderCollection, order)
-        .then(snapShot => console.log('Your order Id',snapShot.id))
-        .catch(err => console.log(err))
-        .finally(() => clearCart())
+            .then(snapShot => console.log('Your order Id', snapShot.id))
+            .catch(err => console.log(err))
+            .finally(() => clearCart())
     }
     return (
         <>
@@ -65,7 +66,20 @@ const Cart = () => {
                     <button className="bg-red-600 rounded-lg px-1 flex items-center font-medium" onClick={() => clearCart()} >
                         <p>Vaciar</p> <MdDeleteForever className="w-5 h-5" />
                     </button>
-                    <button className="rounded-lg px-1 font-medium flex items-center bg-green-500" onClick={() => orderGenerator()} > <p>Finalizar Compra</p> <BsCashCoin className="ml-2 w-5 h-5" /> </button>
+                    <button className="rounded-lg px-1 font-medium flex items-center bg-green-500" onClick={() => Swal.fire({
+                        title: 'Desea realizar la orden?',  
+                        showDenyButton: true,
+                        showCancelButton: true,
+                        confirmButtonText: 'Comprar',
+                        denyButtonText: `No Comprar`,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            orderGenerator()
+                            Swal.fire('Gracias por su Compra!', '', 'success')
+                        } else if (result.isDenied) {
+                            Swal.fire('La compra no se realizo', '', 'info')
+                        }
+                    })} > <p>Finalizar Compra</p> <BsCashCoin className="ml-2 w-5 h-5" /> </button>
                 </section>}
             </div>
         </>
