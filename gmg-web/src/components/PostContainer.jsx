@@ -1,9 +1,8 @@
-
-
+import PostForm from "./PostForm"
 const PostContainer = () => {
     return (
         <div>
-            <p>Publicar</p>
+            <PostForm />
         </div>
     )
 }
