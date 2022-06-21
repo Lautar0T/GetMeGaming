@@ -5,6 +5,7 @@ import { IoReturnUpBack } from "react-icons/io5"
 import { BsCashCoin } from "react-icons/bs"
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import Swal from 'sweetalert2'
+import { useState } from "react"
 const Cart = () => {
     const { cartList, cartTotal, clearCart, removeFromCart, emptyCart, showCart } = useCartContext()
     const navigate = useNavigate()
@@ -12,7 +13,7 @@ const Cart = () => {
     function langForm(x) {
         return x.toLocaleString('es-AR');
     }
-
+    const [orderId, setOrderId] = useState()
     function orderGenerator() {
         let order = {}
         order.buyer = { name: "John", lastname: "Doe", email: "john_doe@gmail.com", phone: "1144235622" }
@@ -31,7 +32,7 @@ const Cart = () => {
         const db = getFirestore()
         const orderCollection = collection(db, 'orders')
         addDoc(orderCollection, order)
-            .then(snapShot => console.log('Your order Id', snapShot.id))
+            .then(snapShot => setOrderId(snapShot.id))
             .catch(err => console.log(err))
             .finally(() => clearCart())
     }
@@ -78,7 +79,7 @@ const Cart = () => {
                     }).then((result) => {
                         if (result.isConfirmed) {
                             orderGenerator()
-                            Swal.fire('Gracias por su Compra!', '', 'success')
+                            Swal.fire('Gracias por su Compra!', `Orden Nro: ${orderId}`, 'success')
                         } else if (result.isDenied) {
                             Swal.fire('La compra no se realizo', '', 'info')
                         }
