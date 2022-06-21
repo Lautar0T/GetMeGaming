@@ -17,12 +17,15 @@ const Cart = () => {
         let order = {}
         order.buyer = { name: "John", lastname: "Doe", email: "john_doe@gmail.com", phone: "1144235622" }
         order.total = cartTotal
+        let currentDate = new Date()
+        order.date =  currentDate.getDate() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getFullYear() + "-" + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds()
         order.items = cartList.map(item => {
             return {
                 id: item.id,
                 product: item.name,
                 price: item.cantidad * item.price,
                 quantity: item.cantidad
+                
             }
         })
         const db = getFirestore()
