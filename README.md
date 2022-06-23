@@ -11,7 +11,6 @@ Es una pagina web que permite a los usuarios registrarse y comparar diferentes c
 ### Secciones:
 * **Inicio**: Seccion que contiene una imagen de una PC y un boton para registrarse o iniciar sesion.
 * **Productos**: Seccion que contiene una lista de productos.
-* **Comparar**: Seccion que contiene una lista de productos que se pueden comparar.
 * **Publicar**: Seccion que contiene un formulario para publicar un producto.
-* **Perfil**: Seccion que contiene un formulario para editar los datos del usuario.
+* **Perfil**: Seccion para iniciar secion o ver activa.
 * **Carrito**: Seccion que contiene una lista de productos que se encuentran en el carrito.
