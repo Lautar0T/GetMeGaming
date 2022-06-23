@@ -3,38 +3,49 @@ import { useCartContext } from "../context/cartContext"
 import { MdDeleteForever, MdDeleteOutline } from "react-icons/md"
 import { IoReturnUpBack } from "react-icons/io5"
 import { BsCashCoin } from "react-icons/bs"
-import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import { addDoc, collection, doc, getFirestore, updateDoc } from 'firebase/firestore'
 import Swal from 'sweetalert2'
-import { useState } from "react"
+import { useEffect } from "react"
 const Cart = () => {
     const { cartList, cartTotal, clearCart, removeFromCart, emptyCart, showCart } = useCartContext()
     const navigate = useNavigate()
+    useEffect(() => {
+        showCart()
+    })
     showCart()
     function langForm(x) {
         return x.toLocaleString('es-AR');
     }
-    const [orderId, setOrderId] = useState()
+    function updateStock(item) {
+        const db = getFirestore()
+        const itemDoc = doc(db, 'items', `${item.id}`)
+        updateDoc(itemDoc, { stock: item.stock - item.cantidad })
+    }
+    let orderId
     function orderGenerator() {
         let order = {}
         order.buyer = { name: "John", lastname: "Doe", email: "john_doe@gmail.com", phone: "1144235622" }
         order.total = cartTotal
         let currentDate = new Date()
-        order.date =  currentDate.getDate() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getFullYear() + "-" + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds()
+        order.date = currentDate.getDate() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getFullYear() + "-" + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds()
         order.items = cartList.map(item => {
             return {
                 id: item.id,
                 product: item.name,
                 price: item.cantidad * item.price,
                 quantity: item.cantidad
-                
             }
         })
         const db = getFirestore()
         const orderCollection = collection(db, 'orders')
         addDoc(orderCollection, order)
-            .then(snapShot => setOrderId(snapShot.id))
+            .then(snapShot => orderId = snapShot.id)
             .catch(err => console.log(err))
-            .finally(() => clearCart())
+            .finally(() => {
+                cartList.map(item => updateStock(item))
+                clearCart() 
+                Swal.fire('Gracias por su Compra!', `Orden Id: ${orderId}`, 'success')
+            })
     }
     return (
         <>
@@ -71,19 +82,19 @@ const Cart = () => {
                         <p>Vaciar</p> <MdDeleteForever className="w-5 h-5" />
                     </button>
                     <button className="rounded-lg px-1 font-medium flex items-center bg-green-500" onClick={() => Swal.fire({
-                        title: 'Desea realizar la orden?',  
+                        title: 'Desea realizar la orden?',
                         showDenyButton: true,
                         showCancelButton: true,
                         confirmButtonText: 'Comprar',
-                        denyButtonText: `No Comprar`,
+                        denyButtonText: `Seguir Comprando`,
                     }).then((result) => {
                         if (result.isConfirmed) {
                             orderGenerator()
-                            Swal.fire('Gracias por su Compra!', `Orden Nro: ${orderId}`, 'success')
                         } else if (result.isDenied) {
-                            Swal.fire('La compra no se realizo', '', 'info')
+                            navigate(-2)
                         }
-                    })} > <p>Finalizar Compra</p> <BsCashCoin className="ml-2 w-5 h-5" /> </button>
+                    })}>
+                    <p>Finalizar Compra</p> <BsCashCoin className="ml-2 w-5 h-5" /> </button>
                 </section>}
             </div>
         </>

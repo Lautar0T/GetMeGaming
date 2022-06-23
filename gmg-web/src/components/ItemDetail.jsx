@@ -3,10 +3,18 @@ import ItemCount from './ItemCount'
 import { useCartContext } from '../context/cartContext'
 import { useNavigate } from 'react-router-dom'
 import { IoReturnUpBack } from 'react-icons/io5'
+import { useEffect } from 'react'
 const ItemDetail = ({ item }) => {
     const [liveStock, setLiveStock] = useState(item.stock - 1)
     const { isInCart, calcTotal, setEmptyCart } = useCartContext()
+    const [notStock, setNotStock] = useState(false)
     const navigate = useNavigate()
+    useEffect(() => {
+        if (item.stock === 0) {
+            setNotStock(true)
+            setLiveStock(0)
+        }
+        }, [item.stock])
     function updStockLow() {
         setLiveStock(liveStock - 1)
     }
@@ -28,7 +36,7 @@ const ItemDetail = ({ item }) => {
                         <p className=" text-2xl ">{item.name}</p>
                         <p>Precio: <span className=" font-normal">${item.price}</span></p>
                         <p>Stock: <span className="font-normal">{liveStock}</span></p>
-                        <ItemCount initial={1} stock={item.stock} onAdd={onAdd} updStockLow={updStockLow} updStockHi={updStockHi} />
+                        {notStock ? <p>Este Producto se encuentra agotado...</p> : <ItemCount initial={1} stock={item.stock} onAdd={onAdd} updStockLow={updStockLow} updStockHi={updStockHi} />}
                     </div>
                 </div>
                 <p className='font-semibold'>Descripcion: <span className=" font-normal">{item.description}</span></p>

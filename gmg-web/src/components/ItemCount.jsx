@@ -19,7 +19,7 @@ const ItemCount = ({ initial, stock, onAdd, updStockLow, updStockHi }) => {
             setCount(count - 1)
             updStockHi(count)
         }
-        else if (count === 0) {
+        else if (count <= 0) {
             console.log("No puede ser menor que 0")
         }
     }

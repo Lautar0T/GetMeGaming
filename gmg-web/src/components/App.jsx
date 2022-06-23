@@ -6,6 +6,7 @@ import CartContextProvider from '../context/cartContext';
 import Cart from './Cart';
 import LandingContainer from './LandingContainer';
 import PostContainer from './PostContainer';
+import Footer from './Footer';
 function App() {
   return (
     <BrowserRouter>
@@ -18,13 +19,14 @@ function App() {
             <Routes>
               <Route path='/' element={ <LandingContainer/> } />
               <Route path='/products' element={<ItemListContainer/>} />
-              <Route path='/products/category/:catId' element={<ItemListContainer/>} />
+              <Route path='/products/:catId' element={<ItemListContainer/>} />
               <Route path='/item/:itemId' element={<ItemDetailContainer />} />
               <Route path='/post' element={<PostContainer />} />
               <Route path='/cart' element={<Cart/>}/>
               <Route path='/*' element={<Navigate to='/' replace />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </CartContextProvider>
     </BrowserRouter>
