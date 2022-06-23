@@ -24,7 +24,7 @@ const Footer = () => {
                 <span className="text-slate-400">Telefono: <span className="text-slate-500">atencion@getmegaming.com</span> 
                 </span>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 cursor-pointer">
             <IoLogoInstagram className=" w-7 h-7"/>
             <IoLogoTwitter className=" w-7 h-7"/>
             <IoLogoWhatsapp className=" w-7 h-7"/>
