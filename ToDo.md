@@ -12,4 +12,6 @@
 
 ## Checklist
 * Iniciar sesion con o sin firebase
+* Agregar productos a la base de datos
+* Fijarse en optimizar codigo
 * Pagina de perfil que cambia a login cuando no estas logueado con logo de persona
